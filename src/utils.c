@@ -6,11 +6,11 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 22:09:20 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/20 01:01:10 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/07/21 14:35:59 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
+#include "libft.h"
 
 int	str_is_digits(char	*str)
 {
