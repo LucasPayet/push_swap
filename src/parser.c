@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:19:14 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/21 17:09:50 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/07/25 08:45:15 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,26 @@
 
 void	indexer(t_stack *s)
 {
-	t_node	*n;
-	t_node	*tmp;
-	t_node	*li;
+	t_node	*curr;
+	t_node	*min;
 	int		i;
 
 	i = 0;
-	n = s->head;
-	tmp = n;
 	while (i < s->size)
 	{
-		while (n->next)
+		curr = s->head;
+		min = NULL;
+		while (curr)
 		{
-			if (n->next->val < tmp->val)
-				if (li && n->next->val > li->val)
-				tmp = n->next;
-			n = n->next;
+			if (curr->index == -1)
+			{
+				if (!min || curr->val < min->val)
+					min = curr;
+			};
+			curr = curr->next;
 		}
-		tmp->index = i;
-		li = tmp;
-		tmp = s->head;
-		while (tmp && tmp->index > -1)
-			tmp = tmp->next;
-		n = s->head;
+		if (min)
+			min->index = i;
 		i++;
 	}
 }

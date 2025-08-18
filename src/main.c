@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:30:13 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/21 15:00:59 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/07/25 08:27:26 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 
 void	print_stack(t_stack *s)
 {
