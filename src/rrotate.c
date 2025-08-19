@@ -1,49 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 15:53:25 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/18 15:53:44 by lupayet          ###   ########.fr       */
+/*   Created: 2025/08/19 15:12:13 by lupayet           #+#    #+#             */
+/*   Updated: 2025/08/19 15:12:13 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+#include "libft.h"
 
-void	rt_stack(t_stack *s)
+void	rrt_stack(t_stack *s)
 {
 	t_node	*tmp;
+	t_node	*nlast;
 	t_node	*i;
 
 	if (!s->head || s->size <= 1)
 		return ;
 	tmp = s->head;
-	s->head = s->head->next;
 	i = s->head;
 	while (i->next)
+	{
+		if (!i->next->next)
+			nlast = i;
 		i = i->next;
-	i->next = tmp;
-	i->next->next = NULL;
+	}
+	s->head = i;
+	s->head->next = tmp;
+	nlast->next = NULL;
 }
 
-void	ra(t_stack *a)
+void	rra(t_stack *a)
 {
-	ft_putstr_fd("ra", 1);
-	rt_stack(a);
+	ft_putstr_fd("rra", 1);
+	rrt_stack(a);
 }
 
-void	rb(t_stack *b)
+void	rrb(t_stack *b)
 {
-	ft_putstr_fd("rb", 1);
-	rt_stack(b);
+	ft_putstr_fd("rrb", 1);
+	rrt_stack(b);
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b)
 {
-	ft_putstr_fd("rr", 1);
-	rt_stack(a);
-	rt_stack(b);
+	ft_putstr_fd("rrr", 1);
+	rrt_stack(a);
+	rrt_stack(b);
 }

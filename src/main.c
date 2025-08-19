@@ -37,6 +37,7 @@ void	print_stack(t_stack *s)
 int	main(int ac, char **av)
 {
 	t_stack	a;
+	t_stack b;
 
 	a.head = NULL;
 	a.size = 0;
@@ -49,8 +50,12 @@ int	main(int ac, char **av)
 		clean_stack(&a);
 		return (1);
 	}
+	b.head = new_node(50);
 	print_stack(&a);
-	sa(&a);
+	print_stack(&b);
+	rra(&a);
 	print_stack(&a);
+	print_stack(&b);
 	clean_stack(&a);
+	clean_stack(&b);
 }

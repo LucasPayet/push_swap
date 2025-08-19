@@ -13,17 +13,28 @@
 #include "push_swap.h"
 #include "libft.h"
 
-void	ps_stack(t_stack *s1, t_stack *s2)
+void	ps_stack(t_stack *dest, t_stack *src)
 {
-	t_node	*tmp[2];
+	t_node	*tdest;
+	t_node	*tsrc;
 
-	if (!s1->head)
+	if (!src->head)
 		return ;
-	tmp[0] = s1->head->next;
-	tmp[1] = s2->head;
-	s2->head = s1->head;
-	s2->head->next = tmp[1];
-	s1->head = tmp[0];
+	tsrc = src->head->next;
+	tdest = dest->head;
+	dest->head = src->head;
+	dest->head->next = tdest;
+	src->head = tsrc;
 }
 
-void	pa(t_stack *s1, )
+void	pa(t_stack *a, t_stack *b)
+{
+	ft_putstr_fd("pa", 1);
+	ps_stack(a, b);
+}
+
+void	pb(t_stack *b, t_stack *a)
+{
+	ft_putstr_fd("pb", 1);
+	ps_stack(b, a);
+}
