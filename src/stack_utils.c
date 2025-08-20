@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:33:02 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/21 15:17:23 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:16:27 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	add_end_stack(t_stack *a, int val)
 
 int	clean_stack(t_stack *s)
 {
-	t_node *n;
-	t_node *tmp;
+	t_node	*n;
+	t_node	*tmp;
 
 	if (!s)
 		return (0);

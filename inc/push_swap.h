@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:33:15 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/21 14:40:19 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/20 13:16:43 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 typedef struct s_node
 {
 	int				val;
-	int 			index;
+	int				index;
 	struct s_node	*next;
 }	t_node;
 
@@ -42,5 +42,6 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-
+void	k_distribution(t_stack *a, t_stack *b);
+void	k_reintegration(t_stack *a, t_stack *b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 15:12:13 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/19 15:12:13 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/20 13:27:42 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ void	rrt_stack(t_stack *s)
 
 void	rra(t_stack *a)
 {
-	ft_putstr_fd("rra", 1);
+	ft_putstr_fd("rra\n", 1);
 	rrt_stack(a);
 }
 
 void	rrb(t_stack *b)
 {
-	ft_putstr_fd("rrb", 1);
+	ft_putstr_fd("rrb\n", 1);
 	rrt_stack(b);
 }
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	ft_putstr_fd("rrr", 1);
+	ft_putstr_fd("rrr\n", 1);
 	rrt_stack(a);
 	rrt_stack(b);
 }

@@ -6,7 +6,7 @@
 #    By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/19 18:50:32 by lupayet           #+#    #+#              #
-#    Updated: 2025/07/21 14:34:52 by lupayet          ###   ########.fr        #
+#    Updated: 2025/08/20 12:55:20 by lupayet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INC_DIR = ./inc
 LIBFT_P = ./libft/
 LIBFT = $(LIBFT_P)libft.a
 
-SRC	= main.c parser.c utils.c stack_utils.c push.c swap.c rotate.c rrotate.c
+SRC	= main.c parser.c utils.c stack_utils.c push.c swap.c rotate.c rrotate.c ksort.c
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
@@ -38,7 +38,7 @@ $(LIBFT):
 	@echo "> LIBFT CREATED"
 
 $(NAME): $(LIBFT) $(OBJ)
-	@echo "\nCOMPILING $(NAME)\n $(OBJ)..."
+	@echo "\nCOMPILING $(NAME)\n"
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_P)libft.a -g -o $(NAME)
 	@echo "> $(NAME) READY"
 

@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:30:13 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/25 08:27:26 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/20 14:36:24 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	print_stack(t_stack *s)
 {
-	t_node *n;
+	t_node	*n;
 
 	ft_printf("Print_stack\n\n");
 	if (!s)
@@ -37,10 +37,12 @@ void	print_stack(t_stack *s)
 int	main(int ac, char **av)
 {
 	t_stack	a;
-	t_stack b;
+	t_stack	b;
 
 	a.head = NULL;
 	a.size = 0;
+	b.head = NULL;
+	b.size = 0;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
 	if (!parser(&a, ac, av))
@@ -50,12 +52,9 @@ int	main(int ac, char **av)
 		clean_stack(&a);
 		return (1);
 	}
-	b.head = new_node(50);
-	print_stack(&a);
-	print_stack(&b);
-	rra(&a);
-	print_stack(&a);
-	print_stack(&b);
+	k_distribution(&a, &b);
+	k_reintegration(&a, &b);
+	//print_stack(&a);
 	clean_stack(&a);
 	clean_stack(&b);
 }

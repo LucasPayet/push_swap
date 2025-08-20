@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:19:14 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/25 08:45:15 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/20 11:17:53 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	indexer(t_stack *s)
 			{
 				if (!min || curr->val < min->val)
 					min = curr;
-			};
+			}
 			curr = curr->next;
 		}
 		if (min)
