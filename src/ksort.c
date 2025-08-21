@@ -6,7 +6,7 @@
 /*   By: lupayet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 11:47:49 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/20 13:37:20 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/21 14:15:22 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	max_s(t_stack *s)
             max = node->index;
         node = node->next;
     }
-    return max;
+    return (max);
 }
 
 int	index_pos(int index, t_stack *s)
@@ -42,7 +42,7 @@ int	index_pos(int index, t_stack *s)
 		node = node->next;
 		position++;
 	}
-	return -1;
+	return (-1);
 }
 
 void	k_distribution(t_stack *a, t_stack *b)
@@ -56,7 +56,7 @@ void	k_distribution(t_stack *a, t_stack *b)
 		if (a->head->index <= threshold + delta)
 		{
 			pb(b, a);
-			if (a->head && a->head->index <= threshold)
+			if (b->head->index <= threshold)
 				rb(b);
 			threshold++;
 		}
