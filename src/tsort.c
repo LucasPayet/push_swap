@@ -17,19 +17,79 @@ int	min_s(t_stack *s)
 	int	min;
     t_node	*node;
 
-	max = s->head->index;
+	min = s->head->index;
 	node = s->head;
     while (node)
     {
-        if (node->index < max)
-            max = node->index;
+        if (node->index < min)
+            min = node->index;
         node = node->next;
     }
     return (min);
 }
 
+static void	three_sort(t_stack *a)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = a->head->val;
+	j = a->head->next->val;
+	k = a->head->next->next->val;
+	if (i < j && j > k)
+	{
+		rra(a);
+		sa(a);
+	}
+	else if (i > j && j < k && k > i)
+		rra(a);
+	else if (i < j && j > k && k < i)
+		rra(a);
+	else if (i > j && j < k && k < j)
+		ra(a);
+	else if (i > j && j > k && k < i)
+	{
+		ra(a);
+		ra(a);
+	}
+}
+
+void	push_min_b(t_stack *a, t_stack *b)
+{
+	int	min_pos;
+	int	steps;
+
+	while (a->size > 3)
+	{
+		min_pos = index_pos(min_s(a), a);
+		if (min_pos <= a->size / 2)
+		{
+			while (min_pos--)
+				ra(a);
+		}
+		else
+		{
+			steps = a->size - min_pos;
+			while (steps--)
+				rra(a);
+		}
+		pb(b, a);
+	}
+}
+
 void	tsort(t_stack *a, t_stack *b)
 {
-if 
-
+	if (a->size == 2)
+		sa(a);
+	else if (a->size == 3)
+		three_sort(a);
+	else if (a->size <= 5)
+	{
+		push_min_b(a, b);
+		if (!is_sorted(a))
+			three_sort(a);
+		while (b->head)
+			pa(a, b);
+	}
 }

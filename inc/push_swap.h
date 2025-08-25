@@ -43,6 +43,8 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 int		index_pos(int index, t_stack *s);
+int		is_sorted(t_stack *s);
 void	k_distribution(t_stack *a, t_stack *b);
 void	k_reintegration(t_stack *a, t_stack *b);
+void	tsort(t_stack *a, t_stack *b);
 #endif

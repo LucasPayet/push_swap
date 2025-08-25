@@ -52,8 +52,20 @@ int	main(int ac, char **av)
 		clean_stack(&a);
 		return (1);
 	}
-	k_distribution(&a, &b);
-	k_reintegration(&a, &b);
+	if (!is_sorted(&a))
+	{
+		if (a.size > 5)
+		{
+			ft_printf("ksort >>\n");
+			k_distribution(&a, &b);
+			k_reintegration(&a, &b);
+		}
+		else
+		{
+			ft_printf("tsort >>\n");
+			tsort(&a, &b);
+		}
+	}
 	//print_stack(&a);
 	clean_stack(&a);
 	clean_stack(&b);

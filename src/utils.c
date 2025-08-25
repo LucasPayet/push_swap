@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
 int	str_is_digits(char	*str)
 {
@@ -22,6 +23,27 @@ int	str_is_digits(char	*str)
 		if (str[i] < '0' && str[i] > '9')
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	is_sorted(t_stack *s)
+{
+	t_node	*i;
+	int	tmp;
+
+	if (!s || !s->head)
+		return (0);
+	if (s->size == 1)
+		return (1);
+	i = s->head->next;
+	tmp = s->head->val;
+	while (i)
+	{
+		if (i->val < tmp)
+			return (0);
+		tmp = i->val;
+		i = i->next;
 	}
 	return (1);
 }

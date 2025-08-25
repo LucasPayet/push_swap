@@ -23,7 +23,7 @@ INC_DIR = ./inc
 LIBFT_P = ./libft/
 LIBFT = $(LIBFT_P)libft.a
 
-SRC	= main.c parser.c utils.c stack_utils.c push.c swap.c rotate.c rrotate.c ksort.c
+SRC	= main.c parser.c utils.c stack_utils.c push.c swap.c rotate.c rrotate.c ksort.c tsort.c
 
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
