@@ -40,6 +40,19 @@ void	indexer(t_stack *s)
 	}
 }
 
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
 int	stacker(t_stack *a, char **split)
 {
 	int		i;
@@ -51,14 +64,12 @@ int	stacker(t_stack *a, char **split)
 		if (!str_is_digits(split[i]))
 			return (0);
 		nb = ft_atoi(split[i]);
-		free(split[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			return (0);
 		if (!add_end_stack(a, nb))
 			return (0);
 		i++;
 	}
-	free(split);
 	return (1);
 }
 
@@ -75,9 +86,10 @@ int	parser(t_stack *a, int ac, char **av)
 			return (0);
 		if (!stacker(a, split))
 		{
-			free(split);
+			free_split(split);
 			return (0);
 		}
+		free_split(split);
 		i++;
 	}
 	indexer(a);

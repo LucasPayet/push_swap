@@ -48,7 +48,6 @@ int	main(int ac, char **av)
 	if (!parser(&a, ac, av))
 	{
 		write(2, "Error\n", 6);
-		print_stack(&a);
 		clean_stack(&a);
 		return (1);
 	}
@@ -56,17 +55,12 @@ int	main(int ac, char **av)
 	{
 		if (a.size > 5)
 		{
-			ft_printf("ksort >>\n");
 			k_distribution(&a, &b);
 			k_reintegration(&a, &b);
 		}
 		else
-		{
-			ft_printf("tsort >>\n");
 			tsort(&a, &b);
-		}
 	}
-	//print_stack(&a);
 	clean_stack(&a);
 	clean_stack(&b);
 }
