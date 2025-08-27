@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:30:13 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/20 14:36:24 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 16:58:04 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ int	main(int ac, char **av)
 	a.size = 0;
 	b.head = NULL;
 	b.size = 0;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1)
 		return (1);
+	if (ac == 2 && !av[1][0])
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	if (!parser(&a, ac, av))
 	{
 		write(2, "Error\n", 6);
@@ -54,13 +59,11 @@ int	main(int ac, char **av)
 	if (!is_sorted(&a))
 	{
 		if (a.size > 5)
-		{
-			k_distribution(&a, &b);
-			k_reintegration(&a, &b);
-		}
+			k_sort(&a, &b);
 		else
 			tsort(&a, &b);
 	}
 	clean_stack(&a);
 	clean_stack(&b);
+	return (0);
 }

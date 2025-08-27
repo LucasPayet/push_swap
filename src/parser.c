@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 21:19:14 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/20 11:17:53 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 16:18:48 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ void	free_split(char **split)
 	while (split[i])
 	{
 		free(split[i]);
+		split[i] = NULL;
 		i++;
 	}
 	free(split);
+	split = NULL;
 }
 
 int	stacker(t_stack *a, char **split)

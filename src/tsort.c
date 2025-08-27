@@ -6,7 +6,7 @@
 /*   By: lupayet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:39:59 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/21 15:12:22 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 15:48:13 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,47 @@
 
 int	min_s(t_stack *s)
 {
-	int	min;
-    t_node	*node;
+	int		min;
+	t_node	*node;
 
 	min = s->head->index;
 	node = s->head;
-    while (node)
-    {
-        if (node->index < min)
-            min = node->index;
-        node = node->next;
-    }
-    return (min);
+	while (node)
+	{
+		if (node->index < min)
+			min = node->index;
+		node = node->next;
+	}
+	return (min);
 }
 
 static void	three_sort(t_stack *a)
 {
+	int	x;
+	int	y;
+	int	z;
+
+	x = a->head->val;
+	y = a->head->next->val;
+	z = a->head->next->next->val;
+	if (x > y && y < z && x < z)
+		sa(a);
+	else if (x > y && y > z)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (x > y && y < z)
+		ra(a);
+	else if (x < y && y > z && x < z)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (x < y && y > z && x > z)
+		rra(a);
+}
+	/*{
 	int	i;
 	int	j;
 	int	k;
@@ -37,23 +62,23 @@ static void	three_sort(t_stack *a)
 	i = a->head->val;
 	j = a->head->next->val;
 	k = a->head->next->next->val;
-	if (i < j && j > k)
+	if (i < j && j > k && k > i)
 	{
 		rra(a);
 		sa(a);
 	}
 	else if (i > j && j < k && k > i)
-		rra(a);
+		sa(a);
 	else if (i < j && j > k && k < i)
 		rra(a);
 	else if (i > j && j < k && k < j)
 		ra(a);
 	else if (i > j && j > k && k < i)
 	{
-		ra(a);
-		ra(a);
+		sa(a);
+		rra(a);
 	}
-}
+}*/
 
 void	push_min_b(t_stack *a, t_stack *b)
 {

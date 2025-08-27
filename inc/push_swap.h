@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:33:15 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/21 14:45:24 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 13:51:10 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 int		index_pos(int index, t_stack *s);
 int		is_sorted(t_stack *s);
+void	k_sort(t_stack *a, t_stack *b);
 void	k_distribution(t_stack *a, t_stack *b);
 void	k_reintegration(t_stack *a, t_stack *b);
 void	tsort(t_stack *a, t_stack *b);

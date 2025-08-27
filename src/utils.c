@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 22:09:20 by lupayet           #+#    #+#             */
-/*   Updated: 2025/07/21 14:35:59 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 16:36:27 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	str_is_digits(char	*str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] < '0' && str[i] > '9')
+		if (i == 0 && str[i] == '-')
+			i++;
+		if (!(str[i] >= '0') || !(str[i] <= '9'))
 			return (0);
 		i++;
 	}
@@ -30,7 +32,7 @@ int	str_is_digits(char	*str)
 int	is_sorted(t_stack *s)
 {
 	t_node	*i;
-	int	tmp;
+	int		tmp;
 
 	if (!s || !s->head)
 		return (0);

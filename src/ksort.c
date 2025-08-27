@@ -6,7 +6,7 @@
 /*   By: lupayet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 11:47:49 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/21 14:15:22 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/27 13:50:56 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	max_s(t_stack *s)
 {
-	int	max;
-    t_node	*node;
+	int		max;
+	t_node	*node;
 
 	max = s->head->index;
 	node = s->head;
-    while (node)
-    {
-        if (node->index > max)
-            max = node->index;
-        node = node->next;
-    }
-    return (max);
+	while (node)
+	{
+		if (node->index > max)
+			max = node->index;
+		node = node->next;
+	}
+	return (max);
 }
 
 int	index_pos(int index, t_stack *s)
@@ -38,7 +38,7 @@ int	index_pos(int index, t_stack *s)
 	while (node)
 	{
 		if (node->index == index)
-			return position;
+			return (position);
 		node = node->next;
 		position++;
 	}
@@ -48,12 +48,15 @@ int	index_pos(int index, t_stack *s)
 void	k_distribution(t_stack *a, t_stack *b)
 {
 	int	delta;
-	int threshold;
+	int	threshold;
+	int	td;
 
 	delta = a->size / 20 + 7;
 	threshold = 0;
 	while (a->head)
-		if (a->head->index <= threshold + delta)
+	{
+		td = threshold + delta;
+		if (a->head->index <= td)
 		{
 			pb(b, a);
 			if (b->head->index <= threshold)
@@ -62,6 +65,7 @@ void	k_distribution(t_stack *a, t_stack *b)
 		}
 		else
 			ra(a);
+	}
 }
 
 void	k_reintegration(t_stack *a, t_stack *b)
@@ -69,7 +73,7 @@ void	k_reintegration(t_stack *a, t_stack *b)
 	int	max_index;
 	int	pos;
 
-	while(b->head)
+	while (b->head)
 	{
 		max_index = max_s(b);
 		pos = index_pos(max_index, b);
@@ -81,4 +85,10 @@ void	k_reintegration(t_stack *a, t_stack *b)
 				rrb(b);
 		pa(a, b);
 	}
+}
+
+void	k_sort(t_stack *a, t_stack *b)
+{
+	k_distribution(a, b);
+	k_reintegration(a, b);
 }
