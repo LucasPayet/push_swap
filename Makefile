@@ -6,7 +6,7 @@
 #    By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/19 18:50:32 by lupayet           #+#    #+#              #
-#    Updated: 2025/08/20 12:55:20 by lupayet          ###   ########.fr        #
+#    Updated: 2025/08/28 13:31:29 by lupayet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC	= main.c parser.c utils.c stack_utils.c push.c swap.c rotate.c rrotate.c kso
 OBJ	= $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) -Wall -Wextra -Werror -I$(LIBFT_P) -I$(INC_DIR) -g -c $< -o $@
+	@$(CC) -Wall -Wextra -Werror -I$(LIBFT_P) -I$(INC_DIR) -g -c $< -o $@
 
 all: $(NAME)
 
@@ -39,7 +39,7 @@ $(LIBFT):
 
 $(NAME): $(LIBFT) $(OBJ)
 	@echo "\nCOMPILING $(NAME)\n"
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_P)libft.a -g -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT_P)libft.a -g -o $(NAME)
 	@echo "> $(NAME) READY"
 
 clean:

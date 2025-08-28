@@ -6,7 +6,7 @@
 /*   By: lupayet <lupayet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 20:30:13 by lupayet           #+#    #+#             */
-/*   Updated: 2025/08/27 16:58:04 by lupayet          ###   ########.fr       */
+/*   Updated: 2025/08/28 13:08:52 by lupayet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdlib.h>
 
 void	print_stack(t_stack *s)
 {
@@ -31,6 +32,17 @@ void	print_stack(t_stack *s)
 			n = n->next;
 		else
 			return ;
+	}
+}
+
+void	sort(t_stack *a, t_stack *b)
+{
+	if (!is_sorted(a))
+	{
+		if (a->size > 5)
+			k_sort(a, b);
+		else
+			tsort(a, b);
 	}
 }
 
@@ -56,13 +68,7 @@ int	main(int ac, char **av)
 		clean_stack(&a);
 		return (1);
 	}
-	if (!is_sorted(&a))
-	{
-		if (a.size > 5)
-			k_sort(&a, &b);
-		else
-			tsort(&a, &b);
-	}
+	sort(&a, &b);
 	clean_stack(&a);
 	clean_stack(&b);
 	return (0);
